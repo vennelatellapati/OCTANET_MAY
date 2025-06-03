@@ -2,60 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Burger Landing Page</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="logo">BURGER LANDING PAGE</div>
-    <nav id="nav" class="nav">
-      <a href="#restaurant">Restaurant</a>
-      <a href="#menu">Menu</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact Us</a>
-    </nav>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-  </header>
-
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <p class="tagline">The best food to</p>
-      <h1>FEEL</h1>
-      <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-      <a href="#more-info" class="cta">MORE INFO</a>
-    </div>
-  </section>
-
-  <section id="more-info" class="section">
-    <h2>More Info</h2>
-    <p>We craft gourmet burgers from organic ingredients to give you the juiciest experience possible.</p>
-  </section>
-
-  <section id="restaurant" class="section">
-    <h2>Restaurant</h2>
-    <p>Modern and cozy interior, family-friendly environment, and fast service guaranteed!</p>
-  </section>
-
-  <section id="menu" class="section">
-    <h2>Menu</h2>
-    <p>Try our cheesy double beef burger, spicy chicken deluxe, fries, salads, and refreshing drinks.</p>
-  </section>
-
-  <section id="about" class="section">
-    <h2>About</h2>
-    <p>Founded in 2015, we aim to deliver premium burger experiences using only fresh, local ingredients.</p>
-  </section>
-
-  <section id="contact" class="section">
-    <h2>Contact Us</h2>
-    <p>Email: hello@burgerplace.com | Phone: +123-456-7890</p>
-    <p>Upload your burger creation:</p>
-    <input type="file" id="upload" accept="image/*" />
-    <img id="preview" alt="Uploaded Image" style="max-width: 300px; display: none; margin-top: 10px;" />
-  </section>
-
+  <div class="todo-container">
+    <h1>✨ My Tasks</h1>
+    <form id="task-form">
+      <input type="text" id="task-input" placeholder="Add a new task..." required />
+      <button type="submit">Add</button>
+    </form>
+    <ul id="task-list"></ul>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

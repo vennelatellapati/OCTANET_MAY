@@ -1,14 +1,45 @@
-function toggleMenu() {
-  const nav = document.getElementById('nav');
-  nav.classList.toggle('show');
+const taskForm = document.getElementById('task-form');
+const taskInput = document.getElementById('task-input');
+const taskList = document.getElementById('task-list');
+
+taskForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const taskText = taskInput.value.trim();
+  if (taskText) {
+    addTask(taskText);
+    taskInput.value = '';
+  }
+});
+
+function addTask(text) {
+  const li = document.createElement('li');
+
+  const span = document.createElement('span');
+  span.textContent = text;
+
+  const completeBtn = document.createElement('button');
+  completeBtn.textContent = '✔';
+  completeBtn.onclick = () => li.classList.toggle('completed');
+
+  const editBtn = document.createElement('button');
+  editBtn.textContent = '✏';
+  editBtn.onclick = () => editTask(span);
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = '🗑';
+  deleteBtn.onclick = () => li.remove();
+
+  li.appendChild(span);
+  li.appendChild(completeBtn);
+  li.appendChild(editBtn);
+  li.appendChild(deleteBtn);
+
+  taskList.appendChild(li);
 }
 
-document.getElementById('upload').addEventListener('change', function (e) {
-  const reader = new FileReader();
-  reader.onload = function () {
-    const img = document.getElementById('preview');
-    img.src = reader.result;
-    img.style.display = 'block';
-  };
-  reader.readAsDataURL(e.target.files[0]);
-});
+function editTask(span) {
+  const updatedText = prompt("Edit your task:", span.textContent);
+  if (updatedText !== null && updatedText.trim() !== "") {
+    span.textContent = updatedText.trim();
+  }
+}
